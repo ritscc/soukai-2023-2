@@ -13,6 +13,7 @@ from setup import create_util as util
 def create_files(*args) -> None:
     for path, assignee_info in assignees.assignees().items():
         if util.is_target_path(path, *args):
+            path = path.replace('\\', '/') 
             create_file(path, assignee_info)
 
 # texファイルを生成
